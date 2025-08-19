@@ -27,7 +27,7 @@
 - 관계형이란 `데이터 표`와 `데이터 표`의 연결을 관리
 - 대표적인 도구 : MySQL (유료-Oracle이 매입함), MariaDB (무료-MySQL과 같음-MySQL 개발자중 한명이 회사 나와서 만듬), Oracle, PostgreSQL (SupaBasesms PostgreSQL 기반의 SQL 데이터베이스를 사용), SQLite 등
 - SQL 언어는 엑셀의 표와 같음. 즉, `테이블`에 데이터를 관리함
-- NoSQL 언어는 son 형태. 즉, `문서`에 데이터를 관리함 (대표적인 도구 : FireBase, MongoDB)
+- NoSQL 언어는 json 형태. 즉, `문서`에 데이터를 관리함 (대표적인 도구 : FireBase, MongoDB)
 
 ## 4. 테이블에 대한 이해
 
