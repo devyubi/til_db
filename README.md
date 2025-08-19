@@ -49,7 +49,7 @@
 
 - `FK` 라고 통상 칭함
 - `게시글 테이블`과 `사용자 테이블` 생성
-- 예제:
+- 예제: https://docs.google.com/spreadsheets/d/1PjX6Sepcg3nVyHcGmYTeMgkz_9uw-6aZZbLbqfhALtU/edit?usp=sharing
 - 요약: 다른 테이블의 데이터와 관계를 연결 시키는 키를 말함
 - 장점: 잘못된 FK(외래키)를 연결하면 오류를 일으켜줌
 - 데이터가 오류가 없음을 BE 개발자들은 `참조 무결성` 이라고 칭함
