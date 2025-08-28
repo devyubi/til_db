@@ -163,4 +163,121 @@ describe athors;
 show create table authors;
 ```
 
+### 6.2 posts 테이블 만들기 ( CRUD )
 
+- `게시글 (posts)` 이라는 테이블 만들기
+  - id : 자동증가 (AI), PK
+  - title : 255 字
+  - content : 3000 字
+  - `authors_id : FK`
+
+```sql
+-- 게시글 ( posts ) table 만들기
+create table posts(
+	id int,
+    title varchar(255),
+    content varchar(3000),
+    authors_id int not null,
+    primary key (id),
+    foreign key (authors_id) references authors(id)
+); /* references : 참조하다, ctrl + Enter */
+
+describe posts; /* ctrl + Enter */
+```
+
+### 6.3 테이블명 변경하기
+
+- 하단 바꾸고 싶은 테이블명 변경 예시
+
+```sql
+-- ALTER TABLE 테이블명 RENAME 테이블명;
+
+USE 데이터베이스명; /* ctrl + Enter */
+ALTER TABLE posts RENAME post; /* ctrl + Enter */
+show tables; /* ctrl + Enter */
+```
+
+### 6.4 테이블에 컬럼 추가/삭제하기
+
+- 컬럼 추가하기
+
+```sql
+-- USE 데이터베이스명; /* ctrl + Enter */
+-- 반드시 테이블 확인하고 실행해야함
+-- DESCRIBE 테이블명;
+-- ALTER TABLE 테이블명 ADD 컬럼명 데이터타입;
+
+alter table authors add age int; /* ctrl + Enter */
+
+describe authors; /* ctrl + Enter */
+```
+
+- 컬럼 삭제하기
+
+```sql
+-- USE 데이터베이스명; /* ctrl + Enter */
+-- 반드시 테이블 확인하고 실행해야함
+-- DESCRIBE 테이블명;
+-- ALTER TABLE 테이블명 DROP 컬럼명;
+
+alter table authors drop age; /* ctrl + Enter */
+
+describe authors; /* ctrl + Enter */
+```
+
+### 6.5 테이블에 컬럼 변경하기
+
+```sql
+-- USE 스키마(데이터베이스)명; /* ctrl + Enter */
+-- 컬럼 변경하기
+-- ALTER TABLE 테이블명 CHANGE COLUMN 컬럼명 새컬럼명 데이터타입
+
+alter table posts change column content contents varchar(3000); /* ctrl + Enter */
+describe posts; /* ctrl + Enter */
+```
+
+### 6.6 특정 컬럼의 속성 변경하기
+
+```sql
+-- USE 스키마(데이터베이스)명; /* ctrl + Enter */
+-- DESCRIBE 스키마(데이터베이스)명;
+-- ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 데이터타입;
+-- DESCRIBE 테이블명;
+
+describe authors;
+-- 컬럼 변경 시 반드시 데이터 타입이 있어야 함
+
+alter table authors modify column email varchar(30) not null;
+
+describe authors;
+```
+
+### 6.7 데이터 추가하기 ( insert )
+
+- DML : 추가( insert ), 수정( update ), 삭제( delete )
+
+```sql
+-- USE 데이터베이스명;
+-- DESCRIBE 테이블명;
+-- 데이터 추가
+-- INSERT INTO 테이블명 (칼럼1, 칼럼2, 칼럼3) VALUES (값1, 값2, 값3); // 값이 여러개면 value`s`
+-- 데이터 입력 결과 확인하기 (전체 확인)
+
+use board;
+describe authors;
+insert into authors (id, name, email) values (1, "홍길동", "hong@a.com");
+select * from authors;
+```
+
+### 6.8 authors 테이블의 id 가 1 인 데이터를 posts 테이블에 추가하기
+
+- FK 가 있는 경우
+
+```sql
+-- FK 가 있는 경우
+describe posts;
+
+insert into posts (id, title, contents, authors_id) values (1, "제목", "내용1", 1);
+select * from posts;
+describe posts;
+```
